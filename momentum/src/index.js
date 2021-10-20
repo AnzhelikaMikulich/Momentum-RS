@@ -8,3 +8,6 @@
 
 // document.body.appendChild(subHeader);
 // document.body.appendChild(myImage);
+// ======Time=====
+import showTime from "./scripts/clockcalendar";
+showTime()
