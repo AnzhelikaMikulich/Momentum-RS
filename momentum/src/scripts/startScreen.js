@@ -25,6 +25,7 @@ const images = [
   "19.jpg",
   "20.jpg",
 ];
+const delay = 5000;
 let randomImg = images[Math.floor(Math.random() * images.length)];
 let i = 0;
 let index;
@@ -35,7 +36,7 @@ function viewBgImage(src) {
 	img.src = src;
 	img.onload = () => {
 		body.style.background = `url("${src}") center/cover, rgba(0, 0, 0, 0.5)`;
-    
+    body.style.transition = 'background 2s ease-in-out 0.1s'
 	};
 }
 function viewStartImage() {
@@ -51,7 +52,7 @@ function viewStartImage() {
   } else if (hour >= 0 && hour < 6) {
     timesDay = `${baseImages}night/${randomImg}`;
   }
-  viewBgImage(timesDay)
+ viewBgImage(timesDay)
 }
 
 function getSlideNext() {
@@ -64,7 +65,7 @@ function getSlideNext() {
 function getSlidePrev() {
   i--;
   index = i;
-  if (i === 0) i = images.length;
+  if (i === 0||i <0) i = images.length;
   randomImg = images[index];
   viewStartImage();
 }
