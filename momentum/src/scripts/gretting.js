@@ -10,8 +10,7 @@ function viewGreetings() {
   const date = new Date();
   const hour = date.getHours();
   name.onchange = function () {
-    let nameSave = name.value;
-    localStorage.setItem("nameValues", nameSave);
+    localStorage.setItem("nameValues", name.value);
   };
   if (hour >= 6 && hour < 12) {
     greetContainer.innerHTML = "Доброе утро,";
