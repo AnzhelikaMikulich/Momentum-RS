@@ -37,7 +37,19 @@ body {
   width: 120px;
   margin-bottom: 28px;
 }
-
+.wind::before {
+  content: "\f72e";
+  font-family: "FontAwesome";
+  padding-right: 10px;
+}
+.humidity::before {
+  content: "\f043";
+  font-family: "FontAwesome";
+  padding-right: 10px;
+}
+.weather-description::first-letter {
+  text-transform: uppercase;
+}
 .play-list {
   text-align: left;
 }
@@ -199,13 +211,24 @@ body {
   font-size: 100px;
   letter-spacing: -4px;
 }
-
+.weather-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 70px;
+  font-size: 14px;
+  color: rgb(255, 0, 0);
+  text-align: center;
+}
 .date {
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
 }
-
+.date::first-letter {
+  text-transform: uppercase;
+}
 .greeting-container {
   display: flex;
   flex-wrap: wrap;

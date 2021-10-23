@@ -25,7 +25,6 @@ const images = [
   "19.jpg",
   "20.jpg",
 ];
-const delay = 5000;
 let randomImg = images[Math.floor(Math.random() * images.length)];
 let i = 0;
 let index;
