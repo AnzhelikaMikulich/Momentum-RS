@@ -22,8 +22,9 @@ async function getWeather() {
     weatherError.textContent = 'Введены некорректные данные'
 
   }else{
-    weatherError.textContent = ''
-    weatherError.style.height = '0px'
+    weatherError.textContent = '';
+    weatherError.style.height = '0px';
+    weatherIcon.className = 'weather-icon owf';
   weatherIcon.classList.add(`owf-${data.weather[0].id}`);
   temperature.textContent = `${Math.round(data.main.temp)}°C`;
   weatherDescription.textContent = data.weather[0].description;

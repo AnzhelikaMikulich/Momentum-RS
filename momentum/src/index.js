@@ -1,3 +1,6 @@
+//=====Quotes====
+import getQuotes from "./scripts/quotes"
+getQuotes();
 //====Weater=====
 import getWeather from "./scripts/weather"
 getWeather()
