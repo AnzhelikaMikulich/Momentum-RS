@@ -72,6 +72,17 @@ body {
 .play-style {
   color: #c5b358;
 }
+.current-play {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  align-items: center;
+}
+.time-play,
+.time-all {
+  color: #c5b358;
+  font-size: 10px;
+}
 .play-title {
   list-style-type: none;
 }
@@ -82,11 +93,11 @@ body {
 }
 .player-progress {
   display: flex;
+  width: 100%;
   flex-direction: column;
-  justify-content: left;
 }
 .progress-container {
-  width: 100%;
+  width: 70%;
   height: 10px;
   border-radius: 10px;
   background-color: #e7dfb6;
@@ -407,6 +418,20 @@ body {
     padding: 5px;
   }
 }
+@media (max-width: 580px) {
+  .footer-container {
+    margin: 0px auto 0;
+  }
+  .github {
+    display: block;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+  }
+  .play-list {
+    display: none;
+  }
+}
 @media (max-width: 400px) {
   .date {
     min-height: 28px;
@@ -416,7 +441,19 @@ body {
   .time {
     font-size: 50px;
   }
-
+  .player-controls {
+    width: 100px;
+  }
+  .play-title-now {
+    font-size: 12px;
+  }
+  .player-icon,
+  .slider-icon,
+  .change-quote {
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+  }
   .greeting-container {
     flex-direction: column;
     font-size: 28px;

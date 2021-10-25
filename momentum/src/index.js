@@ -9,6 +9,8 @@ const progress = document.querySelector(".progress");
 const progressContainer = document.querySelector('.progress-container')
 const audio = new Audio();
 const playList = document.querySelector(".play-list");
+const timeAll = document.querySelector('.time-all');
+const timePlay = document.querySelector('.time-play');
 let isPlay = false;
 let playIndex = 0;
 
@@ -22,6 +24,7 @@ function addPlayList() {
   });
 }
 addPlayList();
+
 const playTitle = document.querySelectorAll('.play-title');
 
 function loadAudio(song) {
@@ -71,6 +74,11 @@ function playPrev() {
 
 function updateProgress(e) {
     const{duration, currentTime}= e.srcElement;
+    timeAll.textContent = `${((Math.round(currentTime)) /100).toFixed(2)}`;
+    if(duration){
+     timePlay.textContent = `${((Math.round(duration)) /100).toFixed(2)}`   
+    }
+    
     const progressPercent = (currentTime/duration)*100
     progress.style.width = `${progressPercent}%`
 }
