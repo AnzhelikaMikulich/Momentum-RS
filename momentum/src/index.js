@@ -6,6 +6,7 @@ const playTitleNow = document.querySelector(".play-title-now");
 const nextTrack = document.querySelector(".play-next");
 const prevTrack = document.querySelector(".play-prev");
 const progress = document.querySelector(".progress");
+const progressContainer = document.querySelector('.progress-container')
 const audio = new Audio();
 const playList = document.querySelector(".play-list");
 let isPlay = false;
@@ -67,18 +68,26 @@ function updateProgress(e) {
     progress.style.width = `${progressPercent}%`
 }
 function updateAudio(e) {
-    
     let{duration, currentTime}= e.srcElement;
     if(duration==currentTime){
         playNext()
     }
+}
+
+function setProgress(e) {
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+    audio.currentTime = (clickX/width)*duration
+
     
 }
 audio.addEventListener('timeupdate',updateAudio)
 audio.addEventListener('timeupdate',updateProgress)
 playBtn.addEventListener("click", playAudio);
 nextTrack.addEventListener("click", playNext);
-prevTrack.addEventListener('click', playPrev)
+prevTrack.addEventListener('click', playPrev);
+progressContainer.addEventListener('click',setProgress)
 
 //=====Quotes====
 import getQuotes from "./scripts/quotes";
