@@ -1,19 +1,99 @@
+//======Music====
+import musicPlay from "./scripts/music";
+
+const playBtn = document.querySelector(".play");
+const playTitleNow = document.querySelector(".play-title-now");
+const nextTrack = document.querySelector(".play-next");
+const prevTrack = document.querySelector(".play-prev");
+const progress = document.querySelector(".progress");
+const audio = new Audio();
+const playList = document.querySelector(".play-list");
+let isPlay = false;
+let playIndex = 0;
+
+function addPlayList() {
+  musicPlay.forEach((element) => {
+    const li = document.createElement("li");
+    li.textContent = `${element.title}, ${element.autor}`;
+    li.classList.add("play-title");
+    playList.append(li);
+  });
+}
+addPlayList();
+
+function loadAudio(song) {
+  audio.src = song.src;
+  playTitleNow.textContent = `${song.title}, ${song.autor}`;
+}
+loadAudio(musicPlay[playIndex]);
+
+function playAudio() {
+  if (!isPlay) {
+    audio.play();
+    isPlay = true;
+    playTitleNow.classList.add('active');
+    playBtn.classList.add("pause")
+    
+  } else {
+    audio.pause();
+    isPlay = false;
+    playTitleNow.classList.remove('active');
+    playBtn.classList.remove("pause")
+  }
+}
+function playNext() {
+    playIndex++
+    isPlay = false;
+    if (playIndex >musicPlay.length-1 ) {
+        playIndex = 0 
+    }
+    loadAudio(musicPlay[playIndex]);
+    playAudio() 
+    
+}
+function playPrev() {
+    playIndex--
+    isPlay = false;
+    if (playIndex <0 ) {
+        playIndex = musicPlay.length-1 
+    }
+    loadAudio(musicPlay[playIndex]);
+    playAudio() 
+    
+}
+function updateProgress(e) {
+    const{duration, currentTime}= e.srcElement;
+    const progressPercent = (currentTime/duration)*100
+    progress.style.width = `${progressPercent}%`
+}
+function updateAudio(e) {
+    
+    let{duration, currentTime}= e.srcElement;
+    if(duration==currentTime){
+        playNext()
+    }
+    
+}
+audio.addEventListener('timeupdate',updateAudio)
+audio.addEventListener('timeupdate',updateProgress)
+playBtn.addEventListener("click", playAudio);
+nextTrack.addEventListener("click", playNext);
+prevTrack.addEventListener('click', playPrev)
+
 //=====Quotes====
-import getQuotes from "./scripts/quotes"
+import getQuotes from "./scripts/quotes";
 getQuotes();
 //====Weater=====
-import getWeather from "./scripts/weather"
-getWeather()
+import getWeather from "./scripts/weather";
+getWeather();
 //====ChangeScreenImg====
 
 import viewStartImage from "./scripts/startScreen";
 viewStartImage();
 //======= Greetings======
-import viewGreetings from "./scripts/gretting"
+import viewGreetings from "./scripts/gretting";
 viewGreetings();
 
 // ======Time=====
 import showTime from "./scripts/clockcalendar";
 showTime();
-
-

@@ -54,7 +54,47 @@ body {
 .play-list {
   text-align: left;
 }
+.play-title-now {
+  height: 20px;
+}
+.active {
+  animation: transformAnimation 10s linear infinite;
+}
+@keyframes transformAnimation {
+  0% {
+    transform: translate(-100%, 0%);
+  }
 
+  100% {
+    transform: translate(100%, 0%);
+  }
+}
+.play-title {
+  list-style-type: none;
+}
+.play-title::before {
+  content: "\f00c";
+  font-family: "FontAwesome";
+  padding-right: 10px;
+}
+.player-progress {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+.progress-container {
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  background-color: #e7dfb6;
+  margin: 10px auto;
+}
+.progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  background-color: #c5b358;
+}
 .play-item {
   position: relative;
   padding: 5px;
@@ -80,7 +120,12 @@ body {
 .item-active::before {
   color: #c5b358;
 }
-
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
 .player-icon,
 .slider-icon,
 .change-quote {
@@ -276,10 +321,67 @@ body {
 
 .quote {
   min-height: 32px;
+  transition: all 2s ease 0.5s;
 }
 
 .author {
   min-height: 20px;
+  transition: all 2s ease 0.5s;
+}
+.footer-container {
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1140px;
+  margin: -30px auto 0;
+}
+.github {
+  display: block;
+  width: 120px;
+  height: 45px;
+  text-decoration: none;
+  padding-left: 45px;
+  background-image: url("../assets/svg/github.svg");
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  line-height: 45px;
+  color: #cbd5de;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  transition: 0.3s;
+}
+.github:hover {
+  color: #fff;
+}
+.rss {
+  display: block;
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+  width: 86px;
+  height: 32px;
+  background-image: url("../assets/svg/rss.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-right: 111px;
+}
+.rss-year {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 21px;
+  letter-spacing: -2px;
+  color: #cbd5de;
+  line-height: 0.9;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.rss:hover .rss-year {
+  right: -5px;
+  letter-spacing: 0;
 }
 
 @media (max-width: 768px) {

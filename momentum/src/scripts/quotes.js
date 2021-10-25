@@ -1,8 +1,9 @@
 const quote = document.querySelector('.quote');
 const author = document.querySelector('.author');
-const changeQuote = document.querySelector('.change-quote')
+const changeQuote = document.querySelector('.change-quote');
 
-async function getQuotes() {  
+
+async function getQuotes() { 
   let randomQuotes = Math.floor(Math.random() * 100);
   const quotes = 'quotes_ru.json';
   const res = await fetch(quotes);
@@ -10,6 +11,8 @@ async function getQuotes() {
   console.log(data[randomQuotes]);
   quote.textContent = `${data[randomQuotes].text}`;
   author.textContent = `${data[randomQuotes].author}`;
+  setTimeout(() => author.style.opacity = 1, 500)
+  setTimeout(() => quote.style.opacity = 1, 500)
 }
 changeQuote.addEventListener('click',getQuotes)
 
