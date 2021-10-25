@@ -12,6 +12,7 @@ const playList = document.querySelector(".play-list");
 let isPlay = false;
 let playIndex = 0;
 
+
 function addPlayList() {
   musicPlay.forEach((element) => {
     const li = document.createElement("li");
@@ -21,10 +22,12 @@ function addPlayList() {
   });
 }
 addPlayList();
+const playTitle = document.querySelectorAll('.play-title');
 
 function loadAudio(song) {
   audio.src = song.src;
   playTitleNow.textContent = `${song.title}, ${song.autor}`;
+ 
 }
 loadAudio(musicPlay[playIndex]);
 
@@ -34,7 +37,7 @@ function playAudio() {
     isPlay = true;
     playTitleNow.classList.add('active');
     playBtn.classList.add("pause")
-    
+    playTitle[playIndex].classList.add('play-style')
   } else {
     audio.pause();
     isPlay = false;
@@ -42,17 +45,21 @@ function playAudio() {
     playBtn.classList.remove("pause")
   }
 }
+
 function playNext() {
+    playTitle[playIndex].classList.remove('play-style')
     playIndex++
     isPlay = false;
+    
     if (playIndex >musicPlay.length-1 ) {
         playIndex = 0 
     }
     loadAudio(musicPlay[playIndex]);
-    playAudio() 
-    
+    playAudio()  
 }
+
 function playPrev() {
+    playTitle[playIndex].classList.remove('play-style')
     playIndex--
     isPlay = false;
     if (playIndex <0 ) {
@@ -60,8 +67,8 @@ function playPrev() {
     }
     loadAudio(musicPlay[playIndex]);
     playAudio() 
-    
 }
+
 function updateProgress(e) {
     const{duration, currentTime}= e.srcElement;
     const progressPercent = (currentTime/duration)*100

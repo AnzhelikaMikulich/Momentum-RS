@@ -69,6 +69,9 @@ body {
     transform: translate(100%, 0%);
   }
 }
+.play-style {
+  color: #c5b358;
+}
 .play-title {
   list-style-type: none;
 }
