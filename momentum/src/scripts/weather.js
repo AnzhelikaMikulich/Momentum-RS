@@ -25,7 +25,6 @@ async function getWeather() {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lang}&appid=${API_KEY}&units=metric`;
   const res = await fetch(url);
  const data = await res.json(); 
-  console.log(res)
   if(!res.ok){
     weatherError.style.height = '100px'
     weatherError.textContent = 'Введены некорректные данные'
