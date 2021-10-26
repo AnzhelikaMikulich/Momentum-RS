@@ -3,7 +3,8 @@ const author = document.querySelector('.author');
 const changeQuote = document.querySelector('.change-quote');
 const language = document.querySelector(".language");
 let lang;
-let quotesApi;
+let quotesApi = 'quotes_en.json';
+language.checked = true
 if (localStorage.getItem("quotesArray")) {
   let quotesArray = localStorage.getItem("quotesArray");
   quotesApi = quotesArray;
@@ -11,10 +12,10 @@ if (localStorage.getItem("quotesArray")) {
 language.addEventListener("change", function () {
   if (language.checked) {
     lang = 'en';
-    quotesApi = 'quotes_en.json';
+    quotesApi = '././quotes_en.json';
   } else {
     lang = 'ru';
-    quotesApi = 'quotes_ru.json';
+    quotesApi = '././quotes_ru.json';
   }
 });
 
@@ -29,6 +30,7 @@ async function getQuotes() {
   setTimeout(() => quote.style.opacity = 1, 500);
   localStorage.setItem("quotesArray", quotes);
 }
+
 changeQuote.addEventListener('click',getQuotes)
 language.addEventListener("change", getQuotes)
 export default getQuotes
