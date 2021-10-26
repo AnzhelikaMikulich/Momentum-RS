@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "rss-scripts": "^0.2.4"
+  },
+  "dependencies": {
+    "i18n": "^0.13.3"
   }
 }

@@ -11,10 +11,8 @@ if (localStorage.getItem("nameValues")) {
 }
 if (localStorage.getItem("languageValue") == 'true') {
   language.checked = true;
-  console.log(language.checked);
 } else {
   language.checked = false;
-  console.log(language.checked);
 }
 const greeting = {
   en: ["Good night", "Good morning", "Good afternoon", "Good evening"],
