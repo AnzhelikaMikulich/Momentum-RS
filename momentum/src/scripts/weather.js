@@ -6,7 +6,7 @@ const humidity = document.querySelector('.humidity')
 const API_KEY = '4b231a5e30f39896ab03a09ad8a305b6';
 const city = document.querySelector('.city');
 const weatherError = document.querySelector('.weather-error')
-console.log(city.value)
+
 if (localStorage.getItem("cityValues")) {
   let cityValues = localStorage.getItem("cityValues");
   city.value = cityValues;

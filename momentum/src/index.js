@@ -1,3 +1,13 @@
+//======Language====
+// const language = document.querySelector('.language')
+// console.log(language)
+// language.addEventListener('change', function() {
+//     if (this.checked) {
+//       console.log("Checkbox is checked..");
+//     } else {
+//       console.log("Checkbox is not checked..");
+//     }
+//   });
 //======Music====
 import musicPlay from "./scripts/music";
 
